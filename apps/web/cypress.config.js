@@ -1,12 +1,36 @@
 const { defineConfig } = require("cypress");
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+
+const {
+  addCucumberPreprocessorPlugin,
+} = require("@badeball/cypress-cucumber-preprocessor");
+
+const {
+  createEsbuildPlugin,
+} = require("@badeball/cypress-cucumber-preprocessor/esbuild");
 
 module.exports = defineConfig({
   e2e: {
     baseUrl: "https://www.automationexercise.com",
     viewportWidth: 1440,
     viewportHeight: 900,
-    setupNodeEvents(on, config) {
-      
+
+    specPattern: [
+      "cypress/e2e/**/*.feature",
+      "cypress/e2e/**/*.cy.js",
+    ],
+
+    async setupNodeEvents(on, config) {
+      await addCucumberPreprocessorPlugin(on, config);
+
+      on(
+        "file:preprocessor",
+        createBundler({
+          plugins: [createEsbuildPlugin(config)],
+        })
+      );
+
+      return config;
     },
   },
 });

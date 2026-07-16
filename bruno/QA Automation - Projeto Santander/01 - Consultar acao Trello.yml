@@ -1,0 +1,34 @@
+info:
+  name: API-001 - Consultar ação do Trello
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://api.trello.com/1/actions/592f11060f95a3d3d46a987a
+  headers:
+    - name: Accept
+      value: application/json
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test('Deve retornar status code 200', function() {
+          expect(res.status).to.equal(200)
+        })
+
+        test('Deve retornar o nome Professional no campo data.list.name', function() {
+          expect(res.body.data.list.name).to.equal('Professional')
+        })
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Consulta uma ação pública da API do Trello.
+  Resultado esperado: status code 200.
+  Campo validado: data.list.name com o valor Professional.

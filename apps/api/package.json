@@ -1,21 +1,18 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "description": "Testes de API com Cypress, Cucumber e JavaScript",
   "scripts": {
     "test": "cypress run",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^26.0.0",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
-    "cypress": "^14.1.0",
-    "cypress-plugin-api": "^2.11.2",
-    "esbuild": "^0.28.1"
+    "@badeball/cypress-cucumber-preprocessor": "26.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "2.2.8",
+    "cypress": "14.1.0",
+    "cypress-plugin-api": "2.11.2",
+    "esbuild": "0.28.1"
   }
 }

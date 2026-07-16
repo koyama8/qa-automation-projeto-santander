@@ -1,3 +1,4 @@
+@api @smoke
 Feature: Consulta de ação no Trello
 
   Scenario: Consultar o nome da lista de uma ação

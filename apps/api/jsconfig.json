@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "types": [
+      "cypress",
+      "node",
+      "cypress-plugin-api"
+    ]
+  },
+  "include": [
+    "cypress/**/*.js",
+    "cypress.config.js"
+  ]
+}

@@ -101,7 +101,7 @@ npm ci
 
 ## Configuração do teste web
 
-Na pasta `apps/web`, copie o arquivo de exemplo e informe as credenciais de uma conta de teste válida do Automation Exercise:
+Na pasta `apps/web`, copie o arquivo de exemplo e informe as credenciais de uma conta de teste válida do Automation Exercise. Caso ainda não possua uma, crie um usuário de teste na [página de cadastro](https://www.automationexercise.com/login).
 
 ```powershell
 Copy-Item cypress.env.example.json cypress.env.json
@@ -131,6 +131,15 @@ npm test
 ```bash
 cd apps/web
 npm run cy:open
+```
+
+### Web — alternativa com Chrome
+
+Se o Electron não iniciar no ambiente local, execute os testes com o Chrome:
+
+```bash
+cd apps/web
+npx cypress run --browser chrome
 ```
 
 ### API — modo headless

@@ -18,9 +18,13 @@ When('busco pelo produto "Polo"',() => {
    cy.get('#submit_search').click()
 })
 
-Then('devo visualizar o produto nos resultados',() => {
-   cy.contains('h2','Rs. 1500').should('be.visible')
-   cy.contains('p','Premium Polo T-Shirts').should('be.visible')
+Then('devo visualizar o produto nos resultados', () => {
+  cy.contains('.product-image-wrapper', 'Premium Polo T-Shirts')
+    .should('be.visible')
+    .within(() => {
+      cy.contains('p', 'Premium Polo T-Shirts').should('be.visible')
+      cy.contains('h2', 'Rs. 1500').should('be.visible')
+    })
 })
 
 

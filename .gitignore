@@ -1,0 +1,23 @@
+# Dependencias
+**/node_modules/
+
+# Variaveis locais e segredos
+**/.env
+**/cypress.env.json
+!**/.env.example
+
+# Logs
+**/*.log
+npm-debug.log*
+
+# Evidencias geradas pelo Cypress
+**/cypress/downloads/
+**/cypress/screenshots/
+**/cypress/videos/
+**/cypress/reports/
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/
+

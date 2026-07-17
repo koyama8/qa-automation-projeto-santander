@@ -1,0 +1,65 @@
+﻿{
+  "info": {
+    "_postman_id": "7e22d65f-3f74-4d2f-bd7d-8f0f5f7f2b91",
+    "name": "QA Automation - Projeto Santander",
+    "description": "Collection criada a partir da requisição utilizada no Bruno para validação da API pública do Trello no desafio técnico.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "API-001 - Consultar ação do Trello",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.trello.com/1/actions/592f11060f95a3d3d46a987a",
+          "protocol": "https",
+          "host": [
+            "api",
+            "trello",
+            "com"
+          ],
+          "path": [
+            "1",
+            "actions",
+            "592f11060f95a3d3d46a987a"
+          ]
+        },
+        "description": "Consulta uma ação pública da API do Trello. Valida status code 200 e o campo data.list.name com o valor Professional."
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Deve retornar status code 200', function () {",
+              "  pm.response.to.have.status(200)",
+              "})",
+              "",
+              "pm.test('Deve retornar o nome Professional no campo data.list.name', function () {",
+              "  const responseBody = pm.response.json()",
+              "  pm.expect(responseBody.data.list.name).to.eql('Professional')",
+              "})",
+              "",
+              "pm.test('Deve validar contrato básico da resposta', function () {",
+              "  const responseBody = pm.response.json()",
+              "  pm.expect(responseBody).to.have.property('id')",
+              "  pm.expect(responseBody).to.have.property('data')",
+              "  pm.expect(responseBody.data).to.have.property('list')",
+              "  pm.expect(responseBody.data.list).to.have.property('name')",
+              "})"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

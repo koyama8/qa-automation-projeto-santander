@@ -5,6 +5,7 @@
   "description": "Testes de API com Cypress, Cucumber e JavaScript",
   "scripts": {
     "test": "cypress run",
+    "test:chrome": "cypress run --browser chrome",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },

@@ -133,13 +133,22 @@ cd apps/web
 npm run cy:open
 ```
 
-### Web — alternativa com Chrome
+### Alternativa com Chrome
 
-Se o Electron não iniciar no ambiente local, execute os testes com o Chrome:
+Se o Electron não iniciar no ambiente local, execute os testes com o Chrome.
+
+#### Web
 
 ```bash
 cd apps/web
-npx cypress run --browser chrome
+npm run test:chrome
+```
+
+#### API
+
+```bash
+cd apps/api
+npm run test:chrome
 ```
 
 ### API — modo headless

@@ -1,8 +1,4 @@
-const {
-  Given,
-  When,
-  Then,
-} = require('@badeball/cypress-cucumber-preprocessor')
+const { Given, When, Then } = require('@badeball/cypress-cucumber-preprocessor')
 
 let endpoint
 let resposta
@@ -35,5 +31,5 @@ Then(
 
     expect(resposta.body.data.list.name).to.eq(nomeEsperado)
     expect(resposta.body.data.list.id).to.be.a('string').and.not.be.empty
-  }
+  },
 )

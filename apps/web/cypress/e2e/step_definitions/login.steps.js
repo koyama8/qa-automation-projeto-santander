@@ -1,13 +1,9 @@
-const {
-  Given,
-  When,
-  Then,
-} = require('@badeball/cypress-cucumber-preprocessor')
+const { Given, When, Then } = require('@badeball/cypress-cucumber-preprocessor')
 
 Given('que possuo credenciais válidas', () => {
   if (!Cypress.env('email') || !Cypress.env('senha')) {
     throw new Error(
-      'Configure email e senha no arquivo apps/web/cypress.env.json'
+      'Configure email e senha no arquivo apps/web/cypress.env.json',
     )
   }
 })

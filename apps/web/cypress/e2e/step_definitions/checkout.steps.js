@@ -1,8 +1,4 @@
-const {
-  Given,
-  When,
-  Then,
-} = require('@badeball/cypress-cucumber-preprocessor')
+const { Given, When, Then } = require('@badeball/cypress-cucumber-preprocessor')
 
 Given('que possuo o produto "Premium Polo T-Shirts" no carrinho', () => {
   cy.login(Cypress.env('email'), Cypress.env('senha'))
@@ -13,13 +9,11 @@ Given('que possuo o produto "Premium Polo T-Shirts" no carrinho', () => {
     const produtoNoCarrinho = $body
       .find('#cart_info tbody tr')
       .filter((_, linha) =>
-        Cypress.$(linha).text().includes('Premium Polo T-Shirts')
+        Cypress.$(linha).text().includes('Premium Polo T-Shirts'),
       )
 
     if (produtoNoCarrinho.length > 0) {
-      cy.wrap(produtoNoCarrinho.first())
-        .find('.cart_quantity_delete')
-        .click()
+      cy.wrap(produtoNoCarrinho.first()).find('.cart_quantity_delete').click()
     }
   })
 
@@ -46,7 +40,9 @@ When('avanço para o checkout', () => {
   cy.url().should('include', '/checkout')
 })
 
-When('valido o produto "Premium Polo T-Shirts" no resumo do pedido e prossigo para o pagamento',() => {
+When(
+  'valido o produto "Premium Polo T-Shirts" no resumo do pedido e prossigo para o pagamento',
+  () => {
     cy.contains('#cart_info tbody tr', 'Premium Polo T-Shirts')
       .should('be.visible')
       .within(() => {
@@ -71,7 +67,7 @@ When('valido o produto "Premium Polo T-Shirts" no resumo do pedido e prossigo pa
       })
 
     cy.contains('a', 'Place Order').click()
-  }
+  },
 )
 
 Then('devo visualizar a tela de pagamento', () => {

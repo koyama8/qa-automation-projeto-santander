@@ -1,8 +1,4 @@
-const {
-  Given,
-  When,
-  Then,
-} = require('@badeball/cypress-cucumber-preprocessor')
+const { Given, When, Then } = require('@badeball/cypress-cucumber-preprocessor')
 
 Given('que estou autenticado para realizar uma compra', () => {
   cy.login(Cypress.env('email'), Cypress.env('senha'))
@@ -23,14 +19,11 @@ When('clico em adicionar o produto ao carrinho', () => {
     .click()
 })
 
-Then(
-  'devo visualizar a confirmação de produto adicionado ao carrinho',
-  () => {
-    cy.get('.modal-confirm').within(() => {
-      cy.contains('h4', 'Added!').should('be.visible')
-      cy.contains('p', 'Your product has been added to cart.').should(
-        'be.visible'
-      )
-    })
-  }
-)
+Then('devo visualizar a confirmação de produto adicionado ao carrinho', () => {
+  cy.get('.modal-confirm').within(() => {
+    cy.contains('h4', 'Added!').should('be.visible')
+    cy.contains('p', 'Your product has been added to cart.').should(
+      'be.visible',
+    )
+  })
+})

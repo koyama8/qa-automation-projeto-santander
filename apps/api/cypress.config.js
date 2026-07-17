@@ -21,7 +21,7 @@ module.exports = defineConfig({
         'file:preprocessor',
         createBundler({
           plugins: [createEsbuildPlugin(config)],
-        })
+        }),
       )
 
       return config
